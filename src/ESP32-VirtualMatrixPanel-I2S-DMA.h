@@ -381,7 +381,7 @@ inline VirtualCoords VirtualMatrixPanel::getCoords(int16_t virt_x, int16_t virt_
            as if the panel is 2 * W and 0.5 * H !
         */
 
-        if ((virt_y & 8) == 0)
+        if ((coords.y & 8) == 0)
         {
             coords.x += ((coords.x / panelResX) + 1) * panelResX; // 1st, 3rd 'block' of 8 rows of pixels, offset by panel width in DMA buffer
         }
@@ -393,7 +393,7 @@ inline VirtualCoords VirtualMatrixPanel::getCoords(int16_t virt_x, int16_t virt_
         // http://cpp.sh/4ak5u
         // Real number of DMA y rows is half reality
         // coords.y = (y / 16)*8 + (y & 0b00000111);
-        coords.y = (virt_y >> 4) * 8 + (virt_y & 0b00000111);
+        coords.y = (coords.y >> 4) * 8 + (coords.y & 0b00000111);
     }
     else if (panel_scan_rate == FOUR_SCAN_16PX_HIGH)
     {
