@@ -347,7 +347,7 @@ struct HUB75_I2S_CFG
     }
   }
 
-  uint8_t getPixelColorDepthBits()
+  uint8_t getPixelColorDepthBits() const
   {
     return pixel_color_depth_bits;
   }
@@ -462,9 +462,8 @@ public:
   }
 
   // Obj destructor
-  ~MatrixPanel_I2S_DMA()
+  virtual ~MatrixPanel_I2S_DMA()
   {
-
     dma_bus.release();
   }
 
